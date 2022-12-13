@@ -73,3 +73,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'slim-rails', '~> 3.5', '>= 3.5.1'
+gem 'devise', '~> 4.8', '>= 4.8.1'
