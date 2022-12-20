@@ -16,9 +16,9 @@ nav.bg-gray-800
         .hidden.sm:ml-6.sm:block
           .flex.space-x-4
             a.bg-gray-900.text-white.px-3.py-2.rounded-md.text-sm.font-medium[href="/" aria-current="page"]
-              .fas.fa-school-flag
+              .fas.fa-home
               |  Home
-            = link_to 'Classes', smart_classes_path, class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+            / = link_to 'Classes', smart_classes_path, class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
       .absolute.inset-y-0.right-0.flex.items-center.pr-2.sm:static.sm:inset-auto.sm:ml-6.sm:pr-0
         button.rounded-full.bg-gray-800.p-1.text-gray-400.hover:text-white.focus:outline-none.focus:ring-2.focus:ring-white.focus:ring-offset-2.focus:ring-offset-gray-800[type="button"]
           span.sr-only
@@ -34,10 +34,11 @@ nav.bg-gray-800
                   /   = image_tag avatar_url_for(current_user), class: "rounded-full h-8 w-8 align-middle"
                   img.h-8.w-8.rounded-full[src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""]
 
-              .absolute.right-0.z-10.mt-2.w-48.origin-top-right.rounded-md.bg-white.py-1.shadow-lg.ring-1.ring-black.ring-opacity-5.hidden[data-dropdown-target="menu"]
+              .absolute.right-0.z-10.mt-2.w-47.origin-top-right.rounded-md.bg-white.py-1.shadow-lg.ring-1.ring-black.ring-opacity-5.hidden[data-dropdown-target="menu"]
                 .bg-white
-                  = link_to 'Profile',  '', data: {action: "click->dropdown#toggle"}, class: 'no-underline block pl-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap'
-                  = link_to 'Logout',  '', data: {action: "click->dropdown#toggle"}, class: 'no-underline block pl-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap'
+                  = button_to 'Profile',  '', data: {action: "click->dropdown#toggle"}, class: 'no-underline block pl-8 pr-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap'
+                  = button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'no-underline block pl-8 pr-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap'
+
   #mobile-menu.sm:hidden
     .space-y-1.px-2.pt-2.pb-3
       a.bg-gray-900.text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#" aria-current="page"]
