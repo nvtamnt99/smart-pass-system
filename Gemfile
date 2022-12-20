@@ -76,3 +76,4 @@ end
 
 gem 'annotate', '~> 3.2'
 gem 'slim', '~> 4.1'
+gem 'devise', '~> 4.8', '>= 4.8.1'

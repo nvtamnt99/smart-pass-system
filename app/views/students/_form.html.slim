@@ -1,0 +1,21 @@
+= form_with(model: student, class: "contents") do |f|
+  - if student.errors.any?
+    #error_explanation.bg-red-50.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
+      h2
+        = pluralize(student.errors.count, "error")
+        |  prohibited this student from being saved:
+      ul
+        - student.errors.each do |error|
+          li
+            = error.full_message
+  .my-5
+    = f.label :student_name
+    = f.text_field :student_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+  .my-5
+    = f.label 'Student ID'
+    = f.text_field :student_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+  .my-5
+    = f.label 'Class ID'
+    = f.text_field :smart_class_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+  .inline
+    = f.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"
