@@ -1,0 +1,13 @@
+= form_for @smart_class do |f|
+  .flex.flex-wrap.-mx-3.mb-6
+    .w-full.md:w-1/2.px-3
+      label.block.uppercase.tracking-wide.text-gray-700.text-xs.font-bold.mb-2
+        | Class code
+      = f.text_field :class_code, class: 'appearance-none block w-full text-gray-700 border border-gray-500 rounded py-3 px-4 leading-tight focus'
+    .w-full.md:w-1/2.px-3
+      label.block.uppercase.tracking-wide.text-gray-700.text-xs.font-bold.mb-2
+        | Name
+      = f.text_field :name, class: 'appearance-none block w-full text-gray-700 border border-gray-500 rounded py-3 px-4 leading-tight focus'
+
+    .mt-3
+      = f.submit 'Save', class: "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
