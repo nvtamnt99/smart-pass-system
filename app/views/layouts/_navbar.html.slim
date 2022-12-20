@@ -15,10 +15,10 @@ nav.bg-gray-800
           img.hidden.h-8.w-auto.lg:block[src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"]
         .hidden.sm:ml-6.sm:block
           .flex.space-x-4
-            a.bg-gray-900.text-white.px-3.py-2.rounded-md.text-sm.font-medium[href="#" aria-current="page"]
+            a.bg-gray-900.text-white.px-3.py-2.rounded-md.text-sm.font-medium[href="/" aria-current="page"]
               .fas.fa-school-flag
               |  Home
-            = link_to 'Class', nil, class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+            = link_to 'Class', smart_classes_path, class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
       .absolute.inset-y-0.right-0.flex.items-center.pr-2.sm:static.sm:inset-auto.sm:ml-6.sm:pr-0
         button.rounded-full.bg-gray-800.p-1.text-gray-400.hover:text-white.focus:outline-none.focus:ring-2.focus:ring-white.focus:ring-offset-2.focus:ring-offset-gray-800[type="button"]
           span.sr-only
