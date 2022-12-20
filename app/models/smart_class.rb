@@ -1,4 +1,5 @@
 class SmartClass < ApplicationRecord
+  has_many :students, dependent: :destroy
 end
 
 # == Schema Information

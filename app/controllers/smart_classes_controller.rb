@@ -22,8 +22,8 @@ class SmartClassesController < ApplicationController
   def edit
   end
 
- # PATCH/PUT /leads/1
- def update
+  # PATCH/PUT /smart_classes/1
+  def update
     if @smart_class.update(smart_class_params)
       redirect_to @smart_class, notice: 'Update class successfull'
     else
@@ -32,7 +32,7 @@ class SmartClassesController < ApplicationController
     end
   end
 
-  # DELETE /leads/1
+  # DELETE /smart_classes/1
   def destroy
     @smart_class.destroy
     redirect_to smart_classes_path, notice: 'Destroy class successfull'

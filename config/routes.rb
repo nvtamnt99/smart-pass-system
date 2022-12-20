@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'dashboard#index'
+  resources :students
+  root 'smart_classes#index'
   resources :smart_classes
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

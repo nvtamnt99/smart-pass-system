@@ -1,11 +1,35 @@
-.max-w-sm.ml-4.mt-4.bg-white.border.border-gray-200.rounded-lg.shadow-md.dark:bg-gray-800.dark:border-gray-700
-  a[href="#"]
-    img.rounded-t-lg[src="https://www.modelteaching.com/wp-content/uploads/2021/09/Efficient-Classroom-Processes-Icon.png" alt=""]
-  .p-5
-    a[href="#"]
+.container.mx-auto
+  .float-right
+    = link_to 'New student', new_student_path(params: {smart_class: @smart_class}), class: 'bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded'
+  - if notice.present?
+    p#notice.py-2.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-lg.inline-block
+      = notice
+  h1.font-bold Students list
+  .grid.grid-cols-4.gap-4.mt-5
+    - @smart_class.students.each do |student|
+      .w-full.max-w-sm.bg-white.border.border-gray-200.rounded-lg.shadow-md.dark:bg-gray-800.dark:border-gray-700
+        .flex.justify-end.px-4.pt-4
+          .relative[data-controller="dropdown"]
+              .inline-block.select-none[data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0"]
+                button#dropdownButton.inline-block.text-gray-500.dark:text-gray-400.hover:bg-gray-100.dark:hover:bg-gray-700.focus:ring-4.focus:outline-none.focus:ring-gray-200.dark:focus:ring-gray-700.rounded-lg.text-sm.p-1.5
+                  svg.w-6.h-6[aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"]
+                    path[d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"]
+              .absolute.right-0.z-10.mt-2.w-10.origin-top-right.rounded-md.bg-white.py-1.shadow-lg.ring-1.ring-black.ring-opacity-5.hidden[data-dropdown-target="menu"]
+                .text-center
+                  = link_to edit_student_path(student), method: :edit do
+                    .fas.fa-edit
+                .text-center
+                  = button_to student_path(student), method: :delete do
+                    .fas.fa-trash
 
-    h5.mb-2.text-2xl.font-bold.tracking-tight.text-gray-900.dark:text-white
-      = "Name: #{@smart_class.name}"
-    p.mb-3.font-normal.text-gray-700.dark:text-gray-400
-      = "Code: #{@smart_class.class_code}"
-
+        .flex.flex-col.items-center.pb-10
+          img.w-24.h-24.mb-3.rounded-full.shadow-lg[src="https://flowbite.com/docs/images/people/profile-picture-4.jpg" alt="Bonnie image"]
+          h5.mb-1.text-xl.font-medium.text-gray-900.dark:text-white
+            = student.student_name
+          span.text-sm.text-gray-500.dark:text-gray-400
+            = "student id: #{student.student_id}"
+          .flex.mt-4.space-x-3.md:mt-6
+            a.inline-flex.items-center.px-4.py-2.text-sm.font-medium.text-center.text-white.bg-blue-700.rounded-lg.hover:bg-blue-800.focus:ring-4.focus:outline-none.focus:ring-blue-300.dark:bg-blue-600.dark:hover:bg-blue-700.dark:focus:ring-blue-800[href="#"]
+              | Add friend
+            a.inline-flex.items-center.px-4.py-2.text-sm.font-medium.text-center.text-gray-900.bg-white.border.border-gray-300.rounded-lg.hover:bg-gray-100.focus:ring-4.focus:outline-none.focus:ring-gray-200.dark:bg-gray-800.dark:text-white.dark:border-gray-600.dark:hover:bg-gray-700.dark:hover:border-gray-700.dark:focus:ring-gray-700[href="#"]
+              | Message
