@@ -36,16 +36,16 @@ nav.bg-gray-800
 
               .absolute.right-0.z-10.mt-2.w-47.origin-top-right.rounded-md.bg-white.py-1.shadow-lg.ring-1.ring-black.ring-opacity-5.hidden[data-dropdown-target="menu"]
                 .bg-white
-                  = button_to 'Profile', nil, method: :get, data: {action: "click->dropdown#toggle"}, class: 'no-underline block pl-8 pr-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap'
+                  / = button_to 'Profile', nil, method: :get, data: {action: "click->dropdown#toggle"}, class: 'no-underline block pl-8 pr-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap'
                   = button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'no-underline block pl-8 pr-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap'
 
-  #mobile-menu.sm:hidden
-    .space-y-1.px-2.pt-2.pb-3
-      a.bg-gray-900.text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#" aria-current="page"]
-        | Dashboard
-      a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#"]
-        | Team
-      a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#"]
-        | Projects
-      a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#"]
-        | Calendar
+  / #mobile-menu.sm:hidden
+  /   .space-y-1.px-2.pt-2.pb-3
+  /     a.bg-gray-900.text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#" aria-current="page"]
+  /       | Dashboard
+  /     a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#"]
+  /       | Team
+  /     a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#"]
+  /       | Projects
+  /     a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#"]
+  /       | Calendar
