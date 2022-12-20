@@ -36,7 +36,7 @@ nav.bg-gray-800
 
               .absolute.right-0.z-10.mt-2.w-47.origin-top-right.rounded-md.bg-white.py-1.shadow-lg.ring-1.ring-black.ring-opacity-5.hidden[data-dropdown-target="menu"]
                 .bg-white
-                  = button_to 'Profile',  '', data: {action: "click->dropdown#toggle"}, class: 'no-underline block pl-8 pr-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap'
+                  = button_to 'Profile', nil, method: :get, data: {action: "click->dropdown#toggle"}, class: 'no-underline block pl-8 pr-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap'
                   = button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'no-underline block pl-8 pr-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap'
 
   #mobile-menu.sm:hidden
