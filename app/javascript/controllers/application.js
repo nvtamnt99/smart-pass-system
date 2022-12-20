@@ -1,4 +1,6 @@
 import { Application } from "@hotwired/stimulus"
+import { Turbo } from "@hotwired/turbo-rails"
+Turbo.session.drive = false
 
 const application = Application.start()
 // Import and register all TailwindCSS Components
