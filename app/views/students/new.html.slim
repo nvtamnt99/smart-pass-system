@@ -1,0 +1,5 @@
+.mx-auto.md:w-2/3.w-full
+  h1.font-bold.text-4xl
+    | New student
+  = render "form", student: @student
+  = link_to 'Back to class', smart_class_path(@student.smart_class), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
