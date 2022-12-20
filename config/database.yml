@@ -84,6 +84,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: smart_pass_system_production
   username: smart_pass_system
   password: <%= ENV["SMART_PASS_SYSTEM_DATABASE_PASSWORD"] %>
