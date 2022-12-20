@@ -22,8 +22,8 @@ class SmartClassesController < ApplicationController
   def edit
   end
 
- # PATCH/PUT /smart_classes/1
- def update
+  # PATCH/PUT /smart_classes/1
+  def update
     if @smart_class.update(smart_class_params)
       redirect_to @smart_class, notice: 'Update class successfull'
     else
