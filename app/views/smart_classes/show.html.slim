@@ -5,7 +5,6 @@
     p#notice.py-2.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-lg.inline-block
       = notice
   h1.font-bold Students list
-  / .grid.grid-cols-4.gap-4.mt-5
   .p-10.grid.grid-cols-1.sm:grid-cols-1.md:grid-cols-3.lg:grid-cols-4.xl:grid-cols-4.gap-5
     - @smart_class.students.each do |student|
       .w-full.max-w-sm.bg-white.border.border-gray-200.rounded-lg.shadow-md.dark:bg-gray-800.dark:border-gray-700
@@ -15,13 +14,16 @@
                 button#dropdownButton.inline-block.text-gray-500.dark:text-gray-400.hover:bg-gray-100.dark:hover:bg-gray-700.focus:ring-4.focus:outline-none.focus:ring-gray-200.dark:focus:ring-gray-700.rounded-lg.text-sm.p-1.5
                   svg.w-6.h-6[aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"]
                     path[d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"]
-              .absolute.right-0.z-10.mt-2.w-10.origin-top-right.rounded-md.bg-white.py-1.shadow-lg.ring-1.ring-black.ring-opacity-5.hidden[data-dropdown-target="menu"]
+              .absolute.right-0.z-10.mt-2.w-20.origin-top-right.rounded-md.bg-white.py-1.shadow-lg.ring-1.ring-black.ring-opacity-5.hidden[data-dropdown-target="menu"]
                 .text-center
                   = link_to edit_student_path(student), method: :edit do
-                    .fas.fa-edit
+                    = fa_icon "edit", text: 'Edit'
                 .text-center
                   = button_to student_path(student), method: :delete do
-                    .fas.fa-trash
+                    = fa_icon "trash", text: 'Delete'
+                .text-center
+                  = link_to edit_student_path(student), method: :edit do
+                    = fa_icon "hourglass-start", text: 'Timer'
         .flex.flex-col.items-center.pb-10
           p.mb-1.text-xl.font-medium.text-gray-900.dark:text-white Library
           p.mb-1.text-xs.font-medium.text-gray-900.dark:text-white 03:55 remaining
