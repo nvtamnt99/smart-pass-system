@@ -22,8 +22,8 @@
                   = button_to student_path(student), method: :delete do
                     = fa_icon "trash", text: 'Delete'
                 .text-center
-                  = link_to edit_student_path(student), method: :edit do
-                    = fa_icon "hourglass-start", text: 'Timer'
+                  = link_to new_time_record_path(student_id: student) do
+                    = fa_icon "hourglass-start", text: 'Time record'
         .flex.flex-col.items-center.pb-10
           p.mb-1.text-xl.font-medium.text-gray-900.dark:text-white Library
           p.mb-1.text-xs.font-medium.text-gray-900.dark:text-white 03:55 remaining
