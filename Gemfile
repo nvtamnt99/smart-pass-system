@@ -77,3 +77,4 @@ end
 gem 'annotate', '~> 3.2'
 gem 'slim', '~> 4.1'
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'

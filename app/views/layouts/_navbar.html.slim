@@ -5,10 +5,8 @@ nav.bg-gray-800
         button.inline-flex.items-center.justify-center.rounded-md.p-2.text-gray-400.hover:bg-gray-700.hover:text-white.focus:outline-none.focus:ring-2.focus:ring-inset.focus:ring-white[type="button" aria-controls="mobile-menu" aria-expanded="false"]
           span.sr-only
             | Open main menu
-          svg.block.h-6.w-6[xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"]
-            path[stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"]
-          svg.hidden.h-6.w-6[xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"]
-            path[stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"]
+          a.bg-gray-900.text-white.px-3.py-2.rounded-md.text-sm.font-medium[href="/" aria-current="page"]
+            = fa_stacked_icon "twitter", base: "square-o", text: 'Home'
       .flex.flex-1.items-center.justify-center.sm:items-stretch.sm:justify-start
         .flex.flex-shrink-0.items-center
           img.block.h-8.w-auto.lg:hidden[src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"]
@@ -16,8 +14,7 @@ nav.bg-gray-800
         .hidden.sm:ml-6.sm:block
           .flex.space-x-4
             a.bg-gray-900.text-white.px-3.py-2.rounded-md.text-sm.font-medium[href="/" aria-current="page"]
-              .fas.fa-home
-              |  Home
+              = fa_stacked_icon "twitter", base: "square-o", text: 'Home'
             / = link_to 'Classes', smart_classes_path, class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
       .absolute.inset-y-0.right-0.flex.items-center.pr-2.sm:static.sm:inset-auto.sm:ml-6.sm:pr-0
         button.rounded-full.bg-gray-800.p-1.text-gray-400.hover:text-white.focus:outline-none.focus:ring-2.focus:ring-white.focus:ring-offset-2.focus:ring-offset-gray-800[type="button"]
@@ -29,23 +26,14 @@ nav.bg-gray-800
           .inline-block.text-sm.px-4.py-2.leading-none.rounded.no-underline.text-gray
             .relative[data-controller="dropdown"]
               .inline-block.select-none[data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0"]
-                span.appearance-none.flex.items-center.inline-block.text-gray-700
+                span.appearance-none.flex.items-center.inline-block.text-gray-100
                   / - if current_user
                   /   = image_tag avatar_url_for(current_user), class: "rounded-full h-8 w-8 align-middle"
-                  img.h-8.w-8.rounded-full[src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""]
+                  img.mr-2.h-8.w-8.rounded-full[src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""]
+                  = fa_icon "caret-down", right: true, class: 'ml-1'
 
               .absolute.right-0.z-10.mt-2.w-47.origin-top-right.rounded-md.bg-white.py-1.shadow-lg.ring-1.ring-black.ring-opacity-5.hidden[data-dropdown-target="menu"]
                 .bg-white
                   / = button_to 'Profile', nil, method: :get, data: {action: "click->dropdown#toggle"}, class: 'no-underline block pl-8 pr-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap'
                   = button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'no-underline block pl-8 pr-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-nowrap'
 
-  / #mobile-menu.sm:hidden
-  /   .space-y-1.px-2.pt-2.pb-3
-  /     a.bg-gray-900.text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#" aria-current="page"]
-  /       | Dashboard
-  /     a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#"]
-  /       | Team
-  /     a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#"]
-  /       | Projects
-  /     a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium[href="#"]
-  /       | Calendar
