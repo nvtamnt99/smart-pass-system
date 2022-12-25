@@ -6,7 +6,7 @@
       = notice
   h1.font-bold Students list
   .p-10.grid.grid-cols-1.sm:grid-cols-1.md:grid-cols-3.lg:grid-cols-4.xl:grid-cols-4.gap-5
-    - @smart_class.students.each do |student|
+    - @students.each do |student|
       ruby:
         time_records = student.time_records
         if time_records.present?
@@ -26,23 +26,20 @@
                     path[d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"]
               .absolute.right-0.z-10.mt-2.w-20.origin-top-right.rounded-md.bg-white.py-1.shadow-lg.ring-1.ring-black.ring-opacity-5.hidden[data-dropdown-target="menu"]
                 .text-center
+                  = link_to new_time_record_path(student_id: student) do
+                    = fa_icon "hourglass-start", text: 'Timer'
+                .text-left
                   = link_to edit_student_path(student), method: :edit do
-                    = fa_icon "edit", text: 'Edit'
+                    = fa_icon "edit", text: 'Edit', class: 'ml-2'
                 .text-center
                   = button_to student_path(student), method: :delete do
                     = fa_icon "trash", text: 'Delete'
-                .text-center
-                  = link_to new_time_record_path(student_id: student) do
-                    = fa_icon "hourglass-start", text: 'Time record'
         .flex.flex-col.items-center.pb-10
           p.mb-1.text-xl.font-medium.text-gray-900.dark:text-white = title_of_student
           .timers.mb-1.text-xs.font-medium.text-gray-900.dark:text-white [data-student-id="#{student.id}"
             \ data-start-time="#{student_go_out_time}"]
             span id="minutes-#{student.id}"
-              | 00
-            | :
             span id="second-#{student.id}"
-              | 00
           img.w-24.h-24.mb-3.rounded-full.shadow-lg[src="https://flowbite.com/docs/images/people/profile-picture-4.jpg" alt="Bonnie image"]
           h5.mb-1.text-xl.font-medium.text-gray-900.dark:text-white
             = student.student_name

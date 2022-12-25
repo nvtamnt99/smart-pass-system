@@ -11,7 +11,7 @@ export default class extends Controller {
         let sec = startTime;
         function pad ( val ) { return val > 9 ? val : "0" + val; }
         setInterval( function(){
-            $(`#second-${studentId}`).html(pad(++sec%60))
+            $(`#second-${studentId}`).html(':' + pad(++sec%60))
             $(`#minutes-${studentId}`).html(pad(parseInt(sec/60,10)))
         }, 1000)
       }
