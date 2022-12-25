@@ -38,6 +38,21 @@ class SmartClassesController < ApplicationController
     redirect_to smart_classes_path, notice: 'Destroy class successfull'
   end
 
+  def show
+    students_go_out = []
+    students_in_side = []
+    @smart_class.students.map do |student|
+      if student.time_records.last&.end_time.present? || student.time_records.blank?
+        students_in_side << student
+      else
+        students_go_out << student if student.time_records.last.end_time.nil?
+      end
+    end
+    students_go_out_ids = students_go_out.pluck :id
+    students_go_out = Student.includes(:time_records).where(id: students_go_out_ids).order("time_records.start_time DESC")
+    @students = students_go_out + students_in_side
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_smart_class
