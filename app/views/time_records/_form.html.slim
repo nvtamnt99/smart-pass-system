@@ -1,0 +1,25 @@
+= form_with(model: time_record, class: "contents") do |f|
+  - if time_record.errors.any?
+    #error_explanation.bg-red-50.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
+      h2
+        = pluralize(time_record.errors.count, "error")
+        |  prohibited this time_record from being saved:
+      ul
+        - time_record.errors.each do |error|
+          li
+            = error.full_message
+  .my-5
+    = f.label :title
+    = f.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+  .my-5
+    = f.label :description
+    = f.text_area :description, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", size: '50x4'
+  .my-5
+    = f.label :start_time
+    = f.text_field :start_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", value: @time_record.start_time&.strftime('%Y-%m-%d %H:%M:%S')
+  .my-5
+    = f.label :end_time
+    = f.text_field :end_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+    = f.hidden_field :student_id, value: @time_record.student_id
+  .inline
+    = f.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"

@@ -1,5 +1,13 @@
 import { Application } from "@hotwired/stimulus"
 import { Turbo } from "@hotwired/turbo-rails"
+
+import jquery from "jquery"
+window.jQuery = jquery
+window.$ = jquery
+
+import lodash from "lodash"
+window.lodash = lodash;
+
 Turbo.session.drive = false
 
 const application = Application.start()

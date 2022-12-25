@@ -1,5 +1,6 @@
 class Student < ApplicationRecord
   belongs_to :smart_class
+  has_many :time_records, dependent: :destroy
 end
 
 # == Schema Information
